@@ -1,0 +1,5 @@
+__pycache__
+text/
+mecab-ipadic-neologd
+.env
+stop_words.txt
