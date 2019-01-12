@@ -2,7 +2,6 @@ import json, os, urllib
 import os.path
 from requests_oauthlib import OAuth1Session
 from pprint import pprint
-from time import sleep
 from dotenv import load_dotenv
 
 env_path = os.path.join(os.path.dirname(__file__), '.env')
@@ -44,10 +43,10 @@ def get_follow_ids(screen_name):
         return follow_list
 
 
-def get_tweets_by_userlist(name, user_list):
+def get_tweets_by_userlist(name, follow_list):
     if not os.path.exists('./text/{}'.format(name)):
         os.mkdir('./text/{}'.format(name))
-    for uid in user_list:
+    for uid in follow_list:
         print('='*100)
         print('user id：', uid)
         timelines = []
@@ -104,12 +103,13 @@ def get_tweets_by_userlist(name, user_list):
 def get_tweets_by_search(input_dic):
     timeline = []
     tag = input_dic['tag']
-    target_date = input_dic['target_date']
+    sdate = input_dic['sdate']
+    udate = input_dic['udate']
     stime = input_dic['stime']
     utime = input_dic['utime']
 
-    since = target_date + '_' + stime + '_JST'
-    until = target_date + '_' + utime + '_JST'
+    since = sdate + '_' + stime + '_JST'
+    until = udate + '_' + utime + '_JST'
 
     if not os.path.exists('./text/{}'.format(tag)):
         os.mkdir('./text/{}'.format(tag))
@@ -146,6 +146,6 @@ def get_tweets_by_search(input_dic):
             else:
                 break
 
-    tweets_txt = './text/{}/{}.txt'.format(tag,target_date)
+    tweets_txt = './text/{}/{}.txt'.format(tag,sdate)
     with open(tweets_txt, 'w', encoding='utf-8') as fp:
         fp.write('\n'.join(timeline))

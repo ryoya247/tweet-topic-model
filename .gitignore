@@ -3,3 +3,4 @@ text/
 mecab-ipadic-neologd
 .env
 stop_words.txt
+*.log
