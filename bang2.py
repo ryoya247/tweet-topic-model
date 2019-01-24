@@ -8,7 +8,7 @@ input_dic = {
     'tag': '#バンドリ2期',
     'sdate': s_today,
     'udate': s_today,
-    'stime': '23:00:00',
+    'stime': '22:30:00',
     'utime': '23:59:00'
 }
 
