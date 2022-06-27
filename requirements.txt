@@ -12,7 +12,7 @@ Janome==0.3.7
 jmespath==0.9.3
 mecab-python3==0.996.1
 mojimoji==0.0.8
-mysql-connector-python==8.0.13
+mysql-connector-python==8.0.14
 numpy==1.15.4
 oauthlib==2.1.0
 pprint==0.1
